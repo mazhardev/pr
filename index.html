@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ProTechnologies.dev | Senior Full-Stack Developer Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Portfolio of Your Name, Senior Full-Stack & Mobile Developer specializing in .NET, MERN, and modern cloud solutions." />
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-soft: #0b1120;
+      --card: #0f172a;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.12);
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: #1f2937;
+      --danger: #f97373;
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.7);
+      --shadow-subtle: 0 10px 30px rgba(15, 23, 42, 0.6);
+      --transition-fast: 0.18s ease-out;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #111827 0, #020617 45%, #000 100%);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page-wrap {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 24px 18px 56px;
+    }
+
+    /* Navbar */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to right, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.7));
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      padding: 10px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 18px 36px rgba(15, 23, 42, 0.85);
+      margin-bottom: 26px;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-logo {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #e5faff 0, #38bdf8 30%, #0ea5e9 55%, #020617 100%);
+      box-shadow: 0 0 0 1px rgba(148, 163, 184, 0.4);
+    }
+
+    .nav-title {
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      font-size: 0.95rem;
+    }
+
+    .nav-title span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .nav-links a {
+      padding: 6px 10px;
+      border-radius: 999px;
+      transition: background var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .nav-links a:hover {
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    .nav-cta {
+      font-size: 0.85rem;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(56, 189, 248, 0.8);
+      color: #e0f2fe;
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.4), rgba(15, 23, 42, 0.9));
+      box-shadow: 0 8px 20px rgba(56, 189, 248, 0.25);
+      cursor: pointer;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+      white-space: nowrap;
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-1px) translateX(0.5px);
+      box-shadow: 0 12px 28px rgba(56, 189, 248, 0.35);
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.6), rgba(15, 23, 42, 0.95));
+    }
+
+    @media (max-width: 768px) {
+      .nav {
+        padding: 10px 14px;
+        gap: 10px;
+      }
+      .nav-links {
+        display: none;
+      }
+      .nav-title {
+        font-size: 0.85rem;
+      }
+    }
+
+    /* Layout Util */
+    section {
+      margin-bottom: 60px;
+    }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .section-label-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.25);
+    }
+
+    .section-title {
+      font-size: clamp(1.6rem, 2.4vw, 2rem);
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      font-size: 0.95rem;
+      max-width: 540px;
+    }
+
+    /* Hero */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+      gap: 26px;
+      align-items: center;
+    }
+
+    .hero-left {
+      padding: 18px 20px;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background:
+        radial-gradient(circle at top left, rgba(56, 189, 248, 0.25), transparent 55%),
+        radial-gradient(circle at top right, rgba(8, 47, 73, 0.45), transparent 60%),
+        rgba(15, 23, 42, 0.96);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .hero-pill span {
+      font-weight: 500;
+      color: #e0f2fe;
+    }
+
+    .hero-heading {
+      font-size: clamp(2.1rem, 3.1vw, 2.6rem);
+      line-height: 1.1;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    .hero-heading span {
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+      max-width: 560px;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 22px;
+    }
+
+    .hero-tag {
+      font-size: 0.8rem;
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: rgba(15, 23, 42, 0.9);
+      color: #d1d5db;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .btn-primary {
+      padding: 9px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(56, 189, 248, 0.9);
+      background: linear-gradient(135deg, #0ea5e9, #38bdf8);
+      color: #0b1120;
+      font-size: 0.9rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      box-shadow: 0 14px 30px rgba(56, 189, 248, 0.35);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), filter var(--transition-fast);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 38px rgba(56, 189, 248, 0.5);
+      filter: brightness(1.05);
+    }
+
+    .btn-ghost {
+      padding: 9px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.9);
+      color: #e5e7eb;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(15, 23, 42, 1);
+      border-color: rgba(148, 163, 184, 0.9);
+      transform: translateY(-1px);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    .hero-meta-item span {
+      color: #e5e7eb;
+      font-weight: 500;
+    }
+
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .hero-card {
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: radial-gradient(circle at top, rgba(30, 64, 175, 0.4), rgba(15, 23, 42, 0.96));
+      padding: 14px 14px 16px;
+      box-shadow: var(--shadow-subtle);
+      font-size: 0.8rem;
+    }
+
+    .hero-card-title {
+      font-weight: 600;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .hero-chip {
+      font-size: 0.7rem;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.1);
+      color: #bae6fd;
+      border: 1px solid rgba(56, 189, 248, 0.5);
+    }
+
+    .hero-card p {
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .hero-tech-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .hero-tech-pill {
+      padding: 4px 6px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      background: rgba(15, 23, 42, 0.9);
+      text-align: center;
+      font-size: 0.72rem;
+      color: #e5e7eb;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero-left {
+        padding: 16px 14px;
+      }
+
+      .page-wrap {
+        padding: 18px 14px 44px;
+      }
+
+      section {
+        margin-bottom: 46px;
+      }
+    }
+
+    /* Skills / Services */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    @media (max-width: 900px) {
+      .cards-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .cards-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .card {
+      background: rgba(15, 23, 42, 0.95);
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(51, 65, 85, 0.9);
+      padding: 14px 14px 16px;
+      box-shadow: 0 14px 28px rgba(15, 23, 42, 0.7);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast), translate var(--transition-fast);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.9);
+      border-color: rgba(56, 189, 248, 0.6);
+      background: radial-gradient(circle at top, rgba(30, 64, 175, 0.4), rgba(15, 23, 42, 0.98));
+    }
+
+    .card-badge {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .card-title {
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .card p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .card-tag {
+      font-size: 0.7rem;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      background: rgba(15, 23, 42, 0.96);
+      color: #e5e7eb;
+    }
+
+    /* Projects */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    @media (max-width: 900px) {
+      .projects-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .project {
+      background: rgba(15, 23, 42, 0.96);
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(51, 65, 85, 0.95);
+      padding: 14px 14px 16px;
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.85);
+      position: relative;
+      overflow: hidden;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+    }
+
+    .project:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 44px rgba(15, 23, 42, 1);
+      border-color: rgba(56, 189, 248, 0.7);
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .project-title {
+      font-weight: 600;
+    }
+
+    .project-meta {
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+
+    .project p {
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin-bottom: 10px;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 10px;
+      font-size: 0.8rem;
+      margin-top: 2px;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      color: #bae6fd;
+      transition: color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .project-link:hover {
+      color: #e0f2fe;
+      transform: translateY(-1px);
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .project-tag {
+      font-size: 0.7rem;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(55, 65, 81, 0.95);
+      color: #e5e7eb;
+    }
+
+    /* Process */
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 22px;
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 900px) {
+      .process-steps {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .process-steps {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .step {
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(51, 65, 85, 0.95);
+      background: rgba(15, 23, 42, 0.96);
+      padding: 12px 12px 14px;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.85);
+    }
+
+    .step-num {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent);
+      margin-bottom: 2px;
+    }
+
+    .step-title {
+      font-weight: 600;
+      margin-bottom: 4px;
+      font-size: 0.9rem;
+    }
+
+    .step p {
+      color: var(--muted);
+    }
+
+    /* Contact */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    @media (max-width: 900px) {
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .contact-card {
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: radial-gradient(circle at top, rgba(56, 189, 248, 0.2), rgba(15, 23, 42, 0.98));
+      padding: 16px 16px 18px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .contact-card p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+    }
+
+    .contact-list {
+      list-style: none;
+      margin-top: 8px;
+      font-size: 0.88rem;
+    }
+
+    .contact-list li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+      color: #e5e7eb;
+    }
+
+    .contact-label {
+      font-size: 0.77rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+    }
+
+    .contact-pill {
+      font-size: 0.8rem;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.65);
+      background: rgba(15, 23, 42, 0.98);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 6px;
+      color: #e5e7eb;
+    }
+
+    .contact-form {
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(31, 41, 55, 0.95);
+      background: rgba(15, 23, 42, 0.97);
+      padding: 16px 16px 18px;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.9);
+      font-size: 0.85rem;
+    }
+
+    .form-row {
+      margin-bottom: 10px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .form-input,
+    .form-textarea {
+      width: 100%;
+      padding: 8px 9px;
+      border-radius: 10px;
+      border: 1px solid rgba(55, 65, 81, 0.95);
+      background: rgba(15, 23, 42, 0.98);
+      color: #e5e7eb;
+      font-family: inherit;
+      font-size: 0.84rem;
+      outline: none;
+      transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+    }
+
+    .form-input:focus,
+    .form-textarea:focus {
+      border-color: rgba(56, 189, 248, 0.9);
+      box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.5), 0 10px 30px rgba(15, 23, 42, 1);
+      background: #020617;
+    }
+
+    .form-textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    .form-hint {
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+
+    .form-submit {
+      margin-top: 8px;
+      display: inline-flex;
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: 30px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(31, 41, 55, 0.95);
+      font-size: 0.8rem;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      transition: color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    .accent-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+      display: inline-block;
+      margin-right: 6px;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+    <!-- NAV -->
+    <header class="nav">
+      <div class="nav-brand">
+        <div class="nav-logo"></div>
+        <div class="nav-title">
+          Pro<span>Technologies.dev</span>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#process">Process</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a href="#contact" class="nav-cta">Let’s Work Together</a>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="about">
+      <div class="hero-left">
+        <div class="hero-pill">
+          <span>Senior Full-Stack Developer</span> · .NET · MERN · Mobile
+        </div>
+        <h1 class="hero-heading">
+          Building reliable, scalable software<br />
+          <span>from idea to production.</span>
+        </h1>
+        <p class="hero-sub">
+          I’m <strong>Your Name</strong>, a senior full-stack & mobile developer focused on clean architecture,
+          maintainable code, and long-term partnerships. I help startups and teams ship robust web apps, APIs,
+          and cross-platform mobile solutions that users actually enjoy.
+        </p>
+
+        <div class="hero-tags">
+          <div class="hero-tag">ASP.NET Core / MVC / Web API</div>
+          <div class="hero-tag">React & Next.js</div>
+          <div class="hero-tag">Node.js / Express</div>
+          <div class="hero-tag">MongoDB & SQL Server</div>
+          <div class="hero-tag">Flutter / Mobile Apps</div>
+          <div class="hero-tag">AWS / Azure / CI/CD</div>
+        </div>
+
+        <div class="hero-cta-group">
+          <a href="#contact" class="btn-primary">
+            Book a Free Call →
+          </a>
+          <a href="#projects" class="btn-ghost">
+            View Selected Projects
+          </a>
+        </div>
+
+        <div class="hero-meta">
+          <div class="hero-meta-item">
+            <span>8+ years</span> professional experience
+          </div>
+          <div class="hero-meta-item">
+            <span>End-to-end delivery</span> – from idea to deployment
+          </div>
+          <div class="hero-meta-item">
+            <span>Remote friendly</span> · Available for part-time or full-time engagements
+          </div>
+        </div>
+      </div>
+
+      <aside class="hero-right">
+        <div class="hero-card">
+          <div class="hero-card-title">
+            Core Tech Stack
+            <span class="hero-chip">Back-end</span>
+          </div>
+          <p>
+            I specialize in designing APIs, microservices, and backends that are secure, testable,
+            and built to scale as your product grows.
+          </p>
+          <div class="hero-tech-grid">
+            <div class="hero-tech-pill">ASP.NET Core</div>
+            <div class="hero-tech-pill">Web API</div>
+            <div class="hero-tech-pill">Entity Framework</div>
+            <div class="hero-tech-pill">Node.js / Express</div>
+            <div class="hero-tech-pill">SQL Server</div>
+            <div class="hero-tech-pill">MongoDB</div>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="hero-card-title">
+            Product Experience
+            <span class="hero-chip">Front-end & Mobile</span>
+          </div>
+          <p>
+            From admin dashboards to customer-facing apps, I focus on fast, accessible interfaces
+            that feel smooth on both desktop and mobile.
+          </p>
+          <div class="hero-tech-grid">
+            <div class="hero-tech-pill">React / Next.js</div>
+            <div class="hero-tech-pill">TypeScript</div>
+            <div class="hero-tech-pill">Tailwind CSS</div>
+            <div class="hero-tech-pill">Flutter</div>
+            <div class="hero-tech-pill">REST / GraphQL</div>
+            <div class="hero-tech-pill">Cloud Hosting</div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- SKILLS / SERVICES -->
+    <section id="skills">
+      <div class="section-label">
+        <span class="section-label-dot"></span>
+        SERVICES & SKILLS
+      </div>
+      <h2 class="section-title">How I can help your product or team</h2>
+      <p class="section-subtitle">
+        Whether you need a greenfield build, a refactor of legacy code, or a reliable long-term dev on your team,
+        I provide hands-on engineering with clear communication and solid delivery habits.
+      </p>
+
+      <div class="cards-grid">
+        <article class="card">
+          <div class="card-badge">01 · Web Applications</div>
+          <h3 class="card-title">Modern, responsive web apps</h3>
+          <p>
+            Full-stack development using .NET and MERN to build fast, secure, and maintainable web applications
+            tailored to your business needs.
+          </p>
+          <div class="card-tags">
+            <span class="card-tag">ASP.NET Core</span>
+            <span class="card-tag">React / Next.js</span>
+            <span class="card-tag">REST APIs</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-badge">02 · APIs & Integrations</div>
+          <h3 class="card-title">Scalable backends & integrations</h3>
+          <p>
+            Design and implementation of clean APIs, authentication, background jobs, third-party integrations,
+            and internal tools that fit your architecture.
+          </p>
+          <div class="card-tags">
+            <span class="card-tag">JWT / OAuth</span>
+            <span class="card-tag">Stripe / PayPal</span>
+            <span class="card-tag">3rd-party APIs</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-badge">03 · Mobile Apps</div>
+          <h3 class="card-title">Cross-platform mobile experiences</h3>
+          <p>
+            Mobile apps using Flutter for iOS and Android, connected to robust APIs, with attention to performance,
+            UX, and offline-ready behaviour where needed.
+          </p>
+          <div class="card-tags">
+            <span class="card-tag">Flutter</span>
+            <span class="card-tag">REST / GraphQL</span>
+            <span class="card-tag">Push Notifications</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-badge">04 · Cloud & DevOps</div>
+          <h3 class="card-title">Reliable deployments & environments</h3>
+          <p>
+            Helping you host and scale on AWS or Azure with sensible CI/CD pipelines, staging environments, and
+            logging/monitoring in place.
+          </p>
+          <div class="card-tags">
+            <span class="card-tag">AWS / Azure</span>
+            <span class="card-tag">CI/CD</span>
+            <span class="card-tag">Docker</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-badge">05 · Code Quality</div>
+          <h3 class="card-title">Clean, maintainable codebases</h3>
+          <p>
+            Refactoring legacy projects, introducing tests, and improving architecture so teams can ship faster
+            without fear of breaking everything.
+          </p>
+          <div class="card-tags">
+            <span class="card-tag">SOLID Principles</span>
+            <span class="card-tag">Unit / Integration Tests</span>
+            <span class="card-tag">Best Practices</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-badge">06 · Long-Term Support</div>
+          <h3 class="card-title">Partnerships, not one-off hacks</h3>
+          <p>
+            I aim for long-term collaborations: roadmaps, feature iterations, and continuous improvement based on
+            real usage and feedback.
+          </p>
+          <div class="card-tags">
+            <span class="card-tag">Ongoing Support</span>
+            <span class="card-tag">Agile-friendly</span>
+            <span class="card-tag">Clear Communication</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="section-label">
+        <span class="section-label-dot"></span>
+        SELECTED PROJECTS
+      </div>
+      <h2 class="section-title">A glimpse into recent work</h2>
+      <p class="section-subtitle">
+        Here are a few representative projects. I’m happy to walk you through architecture decisions,
+        tradeoffs, and technical details in a call.
+      </p>
+
+      <div class="projects-grid">
+        <article class="project">
+          <div class="project-header">
+            <h3 class="project-title">SaaS Analytics Dashboard</h3>
+            <span class="project-meta">.NET · React · SQL Server</span>
+          </div>
+          <p>
+            End-to-end platform for tracking subscription metrics, revenue, and user behaviour. I built the API,
+            admin panel, and data visualizations with role-based access and audit logging.
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">ASP.NET Core</span>
+            <span class="project-tag">React</span>
+            <span class="project-tag">Identity / RBAC</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link">
+              Case study on request →
+            </a>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-header">
+            <h3 class="project-title">Logistics Management Portal</h3>
+            <span class="project-meta">Node.js · Next.js · MongoDB</span>
+          </div>
+          <p>
+            Custom web app replacing spreadsheet-based workflows for a logistics team. Implemented booking flows,
+            real-time status updates, and internal dashboards for operations and finance.
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">Next.js</span>
+            <span class="project-tag">REST API</span>
+            <span class="project-tag">Role-based UI</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link">
+              Demo available under NDA →
+            </a>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-header">
+            <h3 class="project-title">On-Demand Services App</h3>
+            <span class="project-meta">Flutter · .NET API</span>
+          </div>
+          <p>
+            Cross-platform mobile app for booking home services, including scheduling, in-app chat, and payments.
+            Flutter front-end backed by a secure .NET API layer.
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">Flutter</span>
+            <span class="project-tag">ASP.NET Web API</span>
+            <span class="project-tag">JWT Auth</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link">
+              Available on request →
+            </a>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-header">
+            <h3 class="project-title">Legacy App Modernization</h3>
+            <span class="project-meta">ASP.NET MVC → Core</span>
+          </div>
+          <p>
+            Migrated a legacy line-of-business system to ASP.NET Core, modularized the codebase, improved performance,
+            and introduced automated deployment & basic test coverage.
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">ASP.NET Core</span>
+            <span class="project-tag">Refactoring</span>
+            <span class="project-tag">CI/CD</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link">
+              Before & after details →
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="process">
+      <div class="section-label">
+        <span class="section-label-dot"></span>
+        DELIVERY PROCESS
+      </div>
+      <h2 class="section-title">How we’ll work together</h2>
+      <p class="section-subtitle">
+        Clear structure, realistic timelines, and frequent communication – so you always know what’s happening
+        and why certain decisions are being made.
+      </p>
+
+      <div class="process-steps">
+        <div class="step">
+          <div class="step-num">Step 01</div>
+          <div class="step-title">Discovery & Scope</div>
+          <p>
+            We clarify goals, constraints, and priorities. I’ll help refine your requirements into a realistic,
+            technical plan and timeline.
+          </p>
+        </div>
+        <div class="step">
+          <div class="step-num">Step 02</div>
+          <div class="step-title">Architecture & Design</div>
+          <p>
+            High-level system design, tech choices, and data modelling. You get a clear picture of how things will
+            work before heavy coding starts.
+          </p>
+        </div>
+        <div class="step">
+          <div class="step-num">Step 03</div>
+          <div class="step-title">Implementation</div>
+          <p>
+            Iterative development with frequent check-ins, staging deployments, and early demos to validate
+            assumptions and reduce risk.
+          </p>
+        </div>
+        <div class="step">
+          <div class="step-num">Step 04</div>
+          <div class="step-title">Launch & Beyond</div>
+          <p>
+            Production deployment, monitoring, and follow-up improvements. I’m available for ongoing support,
+            new features, and long-term collaboration.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="section-label">
+        <span class="section-label-dot"></span>
+        CONTACT
+      </div>
+      <h2 class="section-title">Let’s talk about your project</h2>
+      <p class="section-subtitle">
+        A short message with your goals and timeline is enough to start. I’ll get back to you with follow-up questions
+        or a suggested next step.
+      </p>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <p>
+            Prefer email or direct messages? No problem. You can reach me using the details below or send a quick
+            message via the form.
+          </p>
+
+          <div class="contact-label">DIRECT CONTACT</div>
+          <ul class="contact-list">
+            <li>
+              <span class="accent-dot"></span>
+              <span><strong>Email:</strong> <a href="mailto:hello@protechnologies.dev">hello@protechnologies.dev</a></span>
+            </li>
+            <li>
+              <span class="accent-dot"></span>
+              <span><strong>LinkedIn:</strong> <a href="#" target="_blank" rel="noreferrer">linkedin.com/in/yourprofile</a></span>
+            </li>
+            <li>
+              <span class="accent-dot"></span>
+              <span><strong>GitHub:</strong> <a href="#" target="_blank" rel="noreferrer">github.com/yourusername</a></span>
+            </li>
+            <li>
+              <span class="accent-dot"></span>
+              <span><strong>Upwork / Freelance:</strong> <a href="#" target="_blank" rel="noreferrer">View profile</a></span>
+            </li>
+          </ul>
+
+          <div class="contact-pill">
+            <span>Typical response time:</span>
+            <strong>within 24 hours</strong>
+          </div>
+        </div>
+
+        <form class="contact-form" onsubmit="event.preventDefault(); alert('This is a static demo. Integrate with your backend or form service to handle submissions.');">
+          <div class="form-row">
+            <label class="form-label" for="name">Name</label>
+            <input id="name" class="form-input" type="text" name="name" placeholder="Your name" />
+          </div>
+          <div class="form-row">
+            <label class="form-label" for="email">Email</label>
+            <input id="email" class="form-input" type="email" name="email" placeholder="you@example.com" />
+          </div>
+          <div class="form-row">
+            <label class="form-label" for="company">Company / Project</label>
+            <input id="company" class="form-input" type="text" name="company" placeholder="Optional, but helpful" />
+          </div>
+          <div class="form-row">
+            <label class="form-label" for="message">Project details</label>
+            <textarea id="message" class="form-textarea" name="message" placeholder="Briefly describe what you need, your timeline, and budget range."></textarea>
+            <div class="form-hint">
+              You can also attach specs or links when we move to email.
+            </div>
+          </div>
+          <div class="form-submit">
+            <button type="submit" class="btn-primary">
+              Send Message →
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div>
+        © <span id="year"></span> ProTechnologies.dev · Built by Your Name
+      </div>
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <span>·</span>
+        <a href="#projects">Projects</a>
+        <span>·</span>
+        <a href="#contact">Contact</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
